@@ -32,6 +32,9 @@ footer, header, hgroup, menu, nav, section {
 
 body {
 	line-height: 1;
+	background: #00B4DB;  /* fallback for old browsers */
+	background: -webkit-linear-gradient(to right, #0083B0, #00B4DB);  /* Chrome 10-25, Safari 5.1-6 */
+	background: linear-gradient(to right, #0083B0, #00B4DB); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
 ol, ul {
@@ -1372,7 +1375,7 @@ input, select, textarea {
 	}
 
 	body {
-		background-image: url("images/overlay.png"), url("images/bg1.jpg");
+		/*background-image: url("images/overlay.png"), url("images/bg1.jpg");*/
 		background-repeat: repeat, no-repeat;
 		background-size: auto, 100% 100%;
 		background-attachment: fixed;
@@ -1940,7 +1943,7 @@ input, select, textarea {
 /* Wrapper */
 
 	#wrapper {
-		width: 45em;
+		width: 55rem;
 		margin: 0 auto;
 		min-height: 100vh;
 		max-width: 100%;
@@ -2271,5 +2274,28 @@ input, select, textarea {
 		@media screen and (max-width: 380px) {
 			.button-resume {
 				max-width: calc(80% - 6rem);
+			}
+		}
+
+		.res-pic {
+			/* height: 300px; */
+			width: 400px;
+		}
+
+		.res-pic img {
+			border-radius: 0.75rem !important;
+			object-fit: cover;
+			width: 100%;
+		}
+
+		@media screen and (min-width: 980px) {
+			.res-pic {
+				margin-right: 16px !important;
+			}
+		}
+
+		@media screen and (max-width: 980px) {
+			.res-pic {
+				margin-bottom: 24px !important;
 			}
 		}
