@@ -21,11 +21,14 @@
 	<!-- Global site tag (gtag.js) - Google Analytics -->
 	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-145670699-1"></script>
 	<script>
-	  window.dataLayer = window.dataLayer || [];
-	  function gtag(){dataLayer.push(arguments);}
-	  gtag('js', new Date());
+		window.dataLayer = window.dataLayer || [];
 
-	  gtag('config', 'UA-145670699-1');
+		function gtag() {
+			dataLayer.push(arguments);
+		}
+		gtag('js', new Date());
+
+		gtag('config', 'UA-145670699-1');
 	</script>
 </head>
 
@@ -39,9 +42,11 @@
 			<a href="#" class="icon solid fa-home"><span>Home</span></a>
 			<a href="#projects" class="icon solid fa-briefcase"><span>Projects</span></a>
 			<a href="#skills" class="icon solid fa-laptop-code"><span>Skills</span></a>
-			<a href="https://github.com/keshavkd" class="icon brands fa-github" target="_blank"><span>Github</span></a>
-			<a href="https://linkedin.com/in/keshavkd" class="icon brands fa-linkedin"
-				target="_blank"><span>LinkedIn</span></a>
+			<!-- <a href="#connect" class="icon solid fa-globe"><span>Connect</span></a> -->
+			<!-- <a href="https://github.com/keshavkd" class="icon brands fa-github" target="_blank"><span>Github</span></a>
+			<a href="https://github.com/keshavkd" class="icon brands fa-github" target="_blank"><span>Github</span></a> -->
+			<!-- <a href="https://linkedin.com/in/keshavkd" class="icon brands fa-linkedin" -->
+			<!-- target="_blank"><span>LinkedIn</span></a> -->
 		</nav>
 
 		<!-- Main -->
@@ -56,8 +61,17 @@
 					<p class="icon solid fa-palette"><span class="text-span">Graphic Designer</span></p>
 					<p class="icon solid fa-cog"><span class="text-span">Tech Enthusiast</span></p>
 					<!-- <a class="button-resume" href='http://tiny.cc/kdres0519' target="_blank">Resume</a> -->
-					<a href="https://drive.google.com/open?id=1sw6T4uyB6p0ek7-w9V2yl0Xf_4OCiCNx" target="_blank"
-						class="btn btn-outline-primary my-3 btn-res">Resume</a>
+					<!-- <a href="https://drive.google.com/open?id=1sw6T4uyB6p0ek7-w9V2yl0Xf_4OCiCNx" target="_blank"
+						class="btn btn-outline-primary my-3 btn-res">Resume</a> -->
+					<div id="links-content">
+						<!-- <h2>Connect</h2> -->
+						<a href="https://github.com/keshavkd" class="icon brands fa-github" target="_blank"><span
+								class="span-text"> keshavkd</span></a>
+						<a href="https://linkedin.com/in/keshavkd" class="icon brands fa-linkedin" target="_blank"><span
+								class="span-text"> in/keshavkd</span></a>
+						<a href="https://www.behance.net/keshavkd96096f" class="icon brands fa-behance-square"
+							target="_blank"><span class="span-text"> keshavkd96096f</span></a>
+					</div>
 				</header>
 				<!-- <div class="jumplink pic">
 					<span class="arrow icon solid fa-chevron-right"><span class="proj-icon">Check out my
@@ -198,35 +212,25 @@
 						<span class="skills-bold">● Miscellaneous:</span> Microsoft Office <br />
 					</p>
 
+					<a href="https://drive.google.com/open?id=1sw6T4uyB6p0ek7-w9V2yl0Xf_4OCiCNx" target="_blank"
+						class="btn btn-outline-primary my-1">Resume</a>
+
 				</div>
 			</article>
 
-			<!-- Contact -->
-			<article id="contact" class="panel">
+			<article id="connect" class="panel">
 				<header>
-					<h2>Contact Me</h2>
-				</header>
-				<form action="#" method="post">
-					<div>
-						<div class="row">
-							<div class="col-6 col-12-medium">
-								<input type="text" name="name" placeholder="Name" />
-							</div>
-							<div class="col-6 col-12-medium">
-								<input type="text" name="email" placeholder="Email" />
-							</div>
-							<div class="col-12">
-								<input type="text" name="subject" placeholder="Subject" />
-							</div>
-							<div class="col-12">
-								<textarea name="message" placeholder="Message" rows="6"></textarea>
-							</div>
-							<div class="col-12">
-								<input type="submit" value="Send Message" />
-							</div>
-						</div>
+					<div id="links-content">
+						<h2>Connect</h2>
+						<a href="https://github.com/keshavkd" class="icon brands fa-github" target="_blank"><span>
+								keshavkd</span></a>
+						<a href="https://linkedin.com/in/keshavkd" class="icon brands fa-linkedin"
+							target="_blank"><span>
+								in/keshavkd</span></a>
+						<a href="https://www.behance.net/keshavkd96096f" class="icon brands fa-behance-square"
+							target="_blank"><span> keshavkd96096f</span></a>
 					</div>
-				</form>
+				</header>
 			</article>
 
 		</div>
@@ -247,6 +251,7 @@
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
 		integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
 	</script>
-	
+
 </body>
+
 </html>
