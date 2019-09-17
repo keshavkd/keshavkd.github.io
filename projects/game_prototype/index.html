@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        * {
+            margin: 0px;
+            padding: 0px;
+            box-sizing: border-box;
+        }
+
+        body {
+            width: 1200px;
+            margin: 0px auto;
+            text-align: center;
+        }
+
+        #game,
+        #id,
+        .choice,
+        #play {
+            margin: 0.8rem;
+        }
+
+        #tip {
+            color: rgba(216, 27, 96, 1);
+        }
+
+        #win {
+            color: rgba(67, 160, 71, 1);
+        }
+
+        button {
+            padding: 0.2rem 0.4rem;
+        }
+
+        #game {
+            font-size: 2rem;
+        }
+    </style>
+</head>
+
+<body>
+    <p id="game"></p>
+    <p id="tip">[1,2,3,4,5,6,7,8,9,10]</p>
+    <div class="choice">
+        <input type="radio" name="index" id="1" value="0" checked> 1
+        <input type="radio" name="index" id="2" value="1"> 2
+        <input type="radio" name="index" id="3" value="2"> 3
+        <input type="radio" name="index" id="4" value="3"> 4
+        <input type="radio" name="index" id="5" value="4"> 5 <br>
+        <input type="radio" name="index" id="6" value="5"> 6
+        <input type="radio" name="index" id="7" value="6"> 7
+        <input type="radio" name="index" id="8" value="7"> 8
+        <input type="radio" name="index" id="9" value="8"> 9
+        <input type="radio" name="index" id="10" value="9"> 10
+    </div>
+    <button id="play" onclick="run()">Play!</button>
+    <button id="restart" onclick="restart()">Restart!</button>
+    <p id="scoreA"></p>
+    <p id="scoreB"></p>
+    <p id="win"></p>
+    <script>
+        var turn = 1;
+        var ar = [4, 4, 4, 4, 4, 4, 4, 4, 4, 4];
+        document.getElementById("game").innerHTML = "[" + ar + "]";
+        var score_A = 0;
+        var score_B = 0;
+        document.getElementById("scoreA").innerHTML = "A: " + score_A;
+        document.getElementById("scoreB").innerHTML = "B: " + score_B;
+
+        function disableCheck() {
+            var temp = document.getElementsByName("index");
+
+            if (turn == 1) {
+                console.log("temp A");
+                for (i = 0; i < 10; i++) {
+                    if (i < 5)
+                        temp[i].disabled = false;
+                    else
+                        temp[i].disabled = true;
+                }
+                document.getElementById("1").checked = true;
+            } else {
+                console.log("temp B");
+                for (i = 0; i < 10; i++) {
+                    if (i >= 5)
+                        temp[i].disabled = false;
+                    else
+                        temp[i].disabled = true;
+                }
+                document.getElementById("6").checked = true;
+            }
+        }
+
+        function run() {
+            var tsum = 0;
+            var win_score = 0;
+
+            var ind = document.getElementsByName("index");
+            for (i = 0; i < 10; i++) {
+                if (ind[i].checked && ar[i] != 0) {
+                    console.log("first");
+                    while (ar[i] != 0) {
+                        console.log("while");
+                        var temp = ar[i];
+                        var j = i;
+                        for (k = 1; k <= temp; k++) {
+                            console.log("k: " + k + " i, a[i]: " + i + ", " + ar[i] + " j, a[j]: " + j + ", " + ar[j]);
+                            j = (j + 1) % 10;
+                            if (ar[j] != 10) {
+                                ar[i] -= 1;
+                                ar[j] += 1;
+                            } else
+                                k--;
+                        }
+                        i = (j + 1) % 10;
+                        console.log("i ind: " + i + " | ar[i]: " + ar[i]);
+                    }
+                    console.log("done loop");
+                    if (turn == 1) {
+                        score_A += ar[(i + 1) % 10];
+                        document.getElementById("scoreA").innerHTML = "A: " + score_A;
+                    } else {
+                        score_B += ar[(i + 1) % 10];
+                        document.getElementById("scoreB").innerHTML = "B: " + score_B;
+                    }
+                    ar[(i + 1) % 10] = 0;
+                    break;
+                } else if (ind[i].checked && ar[i] == 0) {
+                    console.log("temp");
+                    break;
+                }
+            }
+            turn *= -1;
+            disableCheck();
+            document.getElementById("game").innerHTML = "[" + ar + "]";
+
+            for (i = 0; i < 10; i++) {
+                tsum += ar[i];
+            }
+            console.log(tsum);
+            if (tsum == 0 || tsum == 1) {
+                console.log("HERE!");
+                if (score_A > score_B)
+                    win_score = "A";
+                else if (score_B > score_A)
+                    win_score = "B";
+                if (win_score)
+                    document.getElementById("win").innerHTML = win_score + " is the winner!";
+                else
+                    document.getElementById("win").innerHTML = "It's a tie!";
+                document.getElementById("play").disabled = true;
+            }
+        }
+
+        function restart() {
+            document.location.reload();
+        }
+    </script>
+</body>
+
+</html>
