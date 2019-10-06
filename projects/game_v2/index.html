@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>AncientBoardGame - Greedy7</title>
+
+    <style>
+        * {
+            margin: 0px;
+            padding: 0px;
+            box-sizing: border-box;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+        }
+
+        h3 {
+            font-weight: 700;
+            padding-bottom: 0.8rem;
+            color: rgba(2, 136, 209, 1);
+        }
+
+        .container {
+            max-width: 850px;
+            margin: 1rem auto;
+            text-align: center;
+            background-color: whitesmoke;
+            padding: 1.4rem;
+            border-radius: 0.5rem;
+            -webkit-box-shadow: 0px 0px 10px -4px rgba(0, 0, 0, 0.55);
+            -moz-box-shadow: 0px 0px 10px -4px rgba(0, 0, 0, 0.55);
+            box-shadow: 0px 0px 10px -4px rgba(0, 0, 0, 0.55);
+        }
+
+        .player {
+            display: flex;
+            justify-content: center;
+            margin: 0.8rem auto;
+        }
+
+        .tile {
+            width: 60px;
+            padding: 1rem;
+            background-color: white;
+            font-size: 1.2rem;
+            margin: 0 0.4rem;
+            border-radius: 6px;
+            border: 2px solid gray;
+            cursor: pointer;
+            transition: 0.2s all ease;
+        }
+
+        .tile:hover {
+            background-color: #0288D1;
+            border: 2px solid #0288D1;
+            color: white;
+        }
+
+        #in-hand {
+            margin: 1rem 0 0.7rem 0;
+            font-weight: 700;
+            font-size: 0.8rem;
+        }
+
+        .sc {
+            margin-top: 0.3rem;
+            transition: 0.2s all ease;
+            color: darkslategray;
+        }
+
+        .sc-active {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #0288D1;
+        }
+
+        .inactive-tile {
+            background-color: #546E7A;
+            border: 2px solid darkslategray;
+            color: white;
+            cursor: not-allowed;
+        }
+
+        .inactive-tile:hover {
+            background-color: darkslategray;
+            border: 2px solid darkslategray;
+        }
+
+        #in-hand,
+        h4 {
+            color: darkslategray;
+        }
+
+        #res {
+            padding: 0.6rem 1.2rem;
+            font-size: 1.2rem;
+            background-color: rgba(2, 136, 209, 0.65);
+            color: white;
+            cursor: pointer;
+            margin-top: 1rem;
+            border-radius: 0.3rem;
+            transition: 0.2s all ease;
+        }
+
+        #res:hover {
+            background-color: rgba(2, 136, 209, 1);
+        }
+
+        @media screen and (max-width: 800px) {
+            .tile {
+                width: 85px;
+                height: 85px;
+                font-size: 2rem;
+                padding: 1.3rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h3>AncientBoardGame - Greedy7</h3>
+        <div class="player B">
+            <p class="tile" id="id5" onclick="clickTest(5)">D</p>
+            <p class="tile" id="id4" onclick="clickTest(4)">E</p>
+            <p class="tile" id="id3" onclick="clickTest(3)">F</p>
+        </div>
+        <div class="player A">
+            <p class="tile" id="id0" onclick="clickTest(0)">A</p>
+            <p class="tile" id="id1" onclick="clickTest(1)">B</p>
+            <p class="tile" id="id2" onclick="clickTest(2)">C</p>
+        </div>
+        <p id="in-hand">In Hand: <span id="ac-hand"></span></p>
+        <div class="scores">
+            <h4><u>Scores</u></h4>
+            <p class="sc">A: <span id="scoreA"></span></p>
+            <p class="sc">B: <span id="scoreB"></span></p>
+        </div>
+        <p id="res" onclick="window.location.reload()">Play Again!</p>
+    </div>
+    <script>
+        let i = 0;
+        let noOfTiles = 6
+        let noOfCoins = 3
+        let turn = 1
+        let initPlay = true
+        let acHand = 0
+        let SA = 0, SB = 0
+        let end = false
+
+        let tileCoins = [noOfCoins, noOfCoins, noOfCoins, noOfCoins, noOfCoins, noOfCoins]
+
+        altTiles(initPlay)
+
+        for (; i < noOfTiles; i++) {
+            document.getElementById("id" + i).innerText = tileCoins[i]
+        }
+
+        document.getElementById("res").hidden = true
+        document.getElementById("ac-hand").innerText = acHand
+        document.getElementById("scoreA").innerText = SA
+        document.getElementById("scoreB").innerText = SB
+
+        const turnActive = () => {
+            if (turn == 1) {
+                document.getElementsByClassName("sc").item(0).classList.add("sc-active")
+                document.getElementsByClassName("sc").item(1).classList.remove("sc-active")
+            } else {
+                document.getElementsByClassName("sc").item(0).classList.remove("sc-active")
+                document.getElementsByClassName("sc").item(1).classList.add("sc-active")
+            }
+            if (end) {
+                document.getElementsByClassName("sc").item(0).classList.remove("sc-active")
+                document.getElementsByClassName("sc").item(1).classList.remove("sc-active")
+            }
+        }
+        turnActive();
+
+        function altTiles(initPlay) {
+            if (initPlay) {
+                if (turn == 1) {
+                    let j = 0;
+                    for (; j < noOfTiles / 2; j++)
+                        document.getElementById("id" + j).classList.remove("inactive-tile")
+                    for (; j < noOfTiles; j++)
+                        document.getElementById("id" + j).classList.add("inactive-tile")
+                } else {
+                    let j = 0;
+                    for (; j < noOfTiles / 2; j++)
+                        document.getElementById("id" + j).classList.add("inactive-tile")
+                    for (; j < noOfTiles; j++)
+                        document.getElementById("id" + j).classList.remove("inactive-tile")
+                }
+            } else {
+                for (j = 0; j < noOfTiles; j++)
+                    document.getElementById("id" + j).classList.remove("inactive-tile")
+            }
+        }
+
+        function disableTiles(id) {
+            for (k = 1; k <= noOfTiles; k++) {
+                let j = (id + k) % noOfTiles;
+                if (k != 1) {
+                    document.getElementById("id" + j).classList.add("inactive-tile")
+                } else {
+                    document.getElementById("id" + j).classList.remove("inactive-tile")
+                }
+            }
+        }
+
+        const disableAll = () => {
+            for (m = 0; m < noOfTiles; m++) {
+                document.getElementById("id" + m).classList.remove("inactive-tile")
+                document.getElementById("id" + m).classList.add("inactive-tile")
+            }
+        }
+
+        const winCon = () => {
+            let sum = 0
+            let winText = ''
+            for (i = 0; i < noOfTiles; i++)
+                sum += tileCoins[i]
+            if (sum <= 2) {
+                if (SA > SB) {
+                    console.log(`A is the winner with a score of ${SA}!`)
+                    winText = `A is the winner with a score of ${SA}!`
+                } else if (SB > SA) {
+                    console.log(`B is the winner with a score of ${SB}!`)
+                    winText = `B is the winner with a score of ${SB}!`
+                } else {
+                    console.log(`It's a tie! Score: ${SA}`)
+                    winText = `It's a tie! Score: ${SA}`
+                }
+                end = true
+                turnActive()
+                disableAll()
+                document.getElementById("res").hidden = false
+                document.getElementById("res").style.display = "inline-block"
+                setTimeout(() => {
+                    alert(winText)
+                }, 500);
+            }
+        }
+
+        function clickTest(id) {
+            let tempTile = document.getElementById("id" + id)
+            if (tempTile.classList.contains("inactive-tile"))
+                console.log("CAN'T MAKE CHANGES!")
+            else {
+                if (initPlay) {
+                    acHand = parseInt(document.getElementById("id" + id).innerText)
+                    if (acHand == 0) {
+                        turn *= -1;
+                        altTiles(initPlay)
+                        turnActive();
+                        return;
+                    }
+                    document.getElementById("ac-hand").innerText = acHand
+                    tileCoins[id] = 0
+                    document.getElementById("id" + id).innerText = tileCoins[id]
+                    initPlay = false
+                } else {
+                    acHand--
+                    document.getElementById("ac-hand").innerText = acHand
+                    tileCoins[id]++
+                    document.getElementById("id" + id).innerText = tileCoins[id]
+                    if (acHand == 0)
+                        initPlay = true
+                }
+                altTiles(initPlay)
+                disableTiles(id)
+                if (tileCoins[(id + 1) % noOfTiles] == 0 && acHand == 0) {
+                    if (turn == 1) {
+                        SA += tileCoins[(id + 2) % noOfTiles]
+                        document.getElementById("scoreA").innerText = SA
+                    } else {
+                        SB += tileCoins[(id + 2) % noOfTiles]
+                        document.getElementById("scoreB").innerText = SB
+                    }
+                    tileCoins[(id + 2) % noOfTiles] = 0
+                    document.getElementById("id" + ((id + 2) % noOfTiles)).innerText = tileCoins[(id + 2) % noOfTiles]
+                    turn *= -1
+                    altTiles(initPlay)
+                    turnActive()
+                    winCon()
+                }
+            }
+        }
+
+    </script>
+</body>
+
+</html>
