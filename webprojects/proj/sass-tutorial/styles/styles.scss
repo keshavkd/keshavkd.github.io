@@ -1,0 +1,136 @@
+// Variables link at http://webprojectskd.epizy.com/proj/sass-tutorial/styles/_variables.scss
+// CSS link at http://webprojectskd.epizy.com/proj/sass-tutorial/styles/styles.css
+// SCSS link at http://webprojectskd.epizy.com/proj/sass-tutorial/styles/styles.scss
+
+@import './variables';
+@import url('https://fonts.googleapis.com/css?family=Poppins&display=swap');
+
+// Demonstrating Mixins / Definition (They're like JavaScript Functions!)
+@mixin mp {
+    margin: 0px;
+    padding: 0px;
+}
+
+
+@mixin flexDisplay($color) {
+    display: flex;
+    height: 80vh;
+    justify-content: center;
+    align-items: center;
+    background-color: $color;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+// CSS Begins
+body {
+    // Mixin
+    @include mp;
+    font-family: 'Poppins', sans-serif;
+}
+
+header {
+    // Mixin & Variable 
+    // $col-secondary? => User defined variable! Check the variables file out!
+    @include flexDisplay($col-secondary);
+    padding: 0 1.2rem 0 1.2rem;
+    color: white;
+    // Variable
+    transition-duration: $in;
+
+    // Nested Components
+    &:hover {
+        // Variables
+        color: $col-dark;
+        background: $col-light;
+        transition-duration: $out;
+    }
+
+    img {
+        height: 32px;
+        padding: 0.4rem;
+    }
+}
+
+#info {
+    padding: 0 2rem 0 2rem;
+}
+
+main {
+    // Mixins & Variable
+    @include mp;
+    @include flexDisplay($col-dark);
+
+    color: white;
+    flex-direction: column;
+}
+
+button {
+    // Variables
+    background-color: $col-primary;
+    color: white;
+    transition-duration: $in;
+    padding: 0.4rem 0.6rem 0.4rem 0.6rem;
+    border: none;
+    cursor: pointer;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-style: italic;
+
+    // Nested
+    &:hover {
+        // Variables
+        background-color: $col-secondary;
+        transition-duration: $out;
+    }
+}
+
+footer {
+    // Mixin and Variable
+    @include flexDisplay($col-primary);
+    color: white;
+    height: 3rem;
+    padding: 1rem;
+    justify-content: space-between;
+}
+
+a {
+    padding: 0 1rem 0 1rem;
+    text-decoration: none;
+    transition-duration: $in;
+    color: $col-light;
+
+    &:hover {
+        color: $col-dark;
+        transition-duration: $out;
+    }
+}
+
+#footer-btn {
+    // Variables
+    background-color: $col-secondary;
+    color: $col-dark;
+    font-weight: bold;
+
+    &:hover {
+        background-color: $col-primary;
+        color: white;
+    }
+}
+
+p {
+    // Extension
+    @extend button;
+}
+
+h3 {
+    cursor: pointer;
+    // transition-duration: $in;
+    @include mp();
+
+    &:hover {
+        color: $col-primary;
+        transition-duration: $out;
+    }
+}

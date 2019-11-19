@@ -1,0 +1,141 @@
+@import url("https://fonts.googleapis.com/css?family=Poppins&display=swap");
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0px;
+  padding: 0px;
+  font-family: 'Poppins', sans-serif;
+}
+
+header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 80vh;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: #ffb20d;
+  padding: 0 1.2rem 0 1.2rem;
+  color: white;
+  -webkit-transition-duration: 0.2s;
+          transition-duration: 0.2s;
+}
+
+header:hover {
+  color: #161616;
+  background: #e6e6e6;
+  -webkit-transition-duration: 0.4s;
+          transition-duration: 0.4s;
+}
+
+header img {
+  height: 32px;
+  padding: 0.4rem;
+}
+
+#info {
+  padding: 0 2rem 0 2rem;
+}
+
+main {
+  margin: 0px;
+  padding: 0px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 80vh;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: #161616;
+  color: white;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+button, p {
+  background-color: #2c8ee9;
+  color: white;
+  -webkit-transition-duration: 0.2s;
+          transition-duration: 0.2s;
+  padding: 0.4rem 0.6rem 0.4rem 0.6rem;
+  border: none;
+  cursor: pointer;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-style: italic;
+}
+
+button:hover, p:hover {
+  background-color: #ffb20d;
+  -webkit-transition-duration: 0.4s;
+          transition-duration: 0.4s;
+}
+
+footer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 80vh;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: #2c8ee9;
+  color: white;
+  height: 3rem;
+  padding: 1rem;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+a {
+  padding: 0 1rem 0 1rem;
+  text-decoration: none;
+  -webkit-transition-duration: 0.2s;
+          transition-duration: 0.2s;
+  color: #e6e6e6;
+}
+
+a:hover {
+  color: #161616;
+  -webkit-transition-duration: 0.4s;
+          transition-duration: 0.4s;
+}
+
+#footer-btn {
+  background-color: #ffb20d;
+  color: #161616;
+  font-weight: bold;
+}
+
+#footer-btn:hover {
+  background-color: #2c8ee9;
+  color: white;
+}
+
+h3 {
+  cursor: pointer;
+  margin: 0px;
+  padding: 0px;
+}
+
+h3:hover {
+  color: #2c8ee9;
+  -webkit-transition-duration: 0.4s;
+          transition-duration: 0.4s;
+}
+/*# sourceMappingURL=styles.css.map */

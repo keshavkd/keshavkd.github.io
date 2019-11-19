@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+
+<link href="https://fonts.googleapis.com/css?family=Anton&display=swap" rel="stylesheet">
+
+<head>
+	<title>Snake! - Keshavkd</title>
+</head>
+
+<style type="text/css">
+	canvas {
+	    padding: 0;
+	    margin: auto;
+	    display: block;
+	    width: 512px;
+	    height: 608px;
+	    position: absolute;
+	    top: 0;
+	    bottom: 0;
+	    left: 0;
+	    right: 0;
+	}
+
+	font-family: 'Anton', sans-serif;
+</style>
+
+<body>
+
+ 	</audio>
+	<canvas id="main-canvas" height="608px" width="512px">
+		
+	</canvas>
+
+</body>
+
+	<script type="text/javascript">
+		const cvs = document.getElementById("main-canvas");
+		const ctx = cvs.getContext('2d');
+
+		const box = 32;
+
+		const bg = new Image();
+		bg.src = "res/img/background.png";
+		const starImg = new Image();
+		starImg.src = "res/img/star.png";
+
+		const coin = new Audio();
+		const end = new Audio();
+
+		coin.src = "res/audio/coin.wav";
+		end.src = "res/audio/end.wav";
+
+		let snake = [];
+		snake[0] = {
+			x : 8 * box,
+			y : 10 * box
+		}
+
+		let star = {
+			x : Math.floor(Math.random() * 14 + 1) * box,
+			y : Math.floor(Math.random() * 14 + 4) * box
+		} 
+
+		let i = 0;
+		while(i < snake.length) {
+			if (star.x == snake[i].x && star.y == snake[i].y) {
+				star = {
+					x : Math.floor(Math.random() * 14 + 1) * box,
+					y : Math.floor(Math.random() * 14 + 4) * box
+				} 
+			} else {
+				i++;
+			}
+		}
+
+		let score = 0;
+
+		document.addEventListener("keydown", action);
+
+		let d;
+		let mute = false;
+
+		function action(event) {
+			if (event.keyCode == 37 && d != "RIGHT") {
+				d = "LEFT";
+			} else if (event.keyCode == 38 && d != "DOWN") {
+				d = "UP";
+			} else if (event.keyCode == 39 && d != "LEFT") {
+				d = "RIGHT";
+			} else if (event.keyCode == 40 && d != "UP") {
+				d = "DOWN";
+			} else if (event.keyCode == 77 && mute == false) {
+				mute = true;
+			} else if (event.keyCode == 77 && mute == true) {
+				mute = false;
+			} else if (event.keyCode == 82) {
+				window.location.reload();
+			} 
+		}
+
+		function collision(head, array) {
+			for (let i = 0; i < array.length; i++) {
+				if (head.x == array[i].x && head.y == array[i].y)
+					return true;
+			}
+		}
+
+		function draw() {
+			ctx.drawImage(bg, 0, 0);
+
+			for (let i = 0; i < snake.length; i++) {
+				ctx.fillStyle = (i == 0) ? "#FFCD00" : "white";
+				ctx.fillRect(snake[i].x, snake[i].y, box, box);
+
+				// ctx.strokeStyle = "#37474F";
+				// ctx.strokeRect(snake[i].x, snake[i].y, box, box);
+			}
+			ctx.drawImage(starImg, star.x, star.y);
+
+
+			let snakeX = snake[0].x;
+			let snakeY = snake[0].y;
+
+			if (d == "LEFT") snakeX -= box;
+			if (d == "UP") snakeY -= box;
+			if (d == "RIGHT") snakeX += box;
+			if (d == "DOWN") snakeY += box;
+
+			if (snakeX < box) {
+				snakeX = 14 * box;
+			} else if (snakeX > 14 * box) {
+				snakeX = box;
+			} else if (snakeY < 4 * box) {
+				snakeY = 17 * box;
+			} else if (snakeY > 17 * box) {
+				snakeY = 4 * box;
+			}
+
+			if (snakeX == star.x && snakeY == star.y) {
+				score++;
+				star = {
+					x : Math.floor(Math.random() * 14 + 1) * box,
+					y : Math.floor(Math.random() * 14 + 4) * box
+				}
+				let i = 0;
+				while(i < snake.length) {
+					if (star.x == snake[i].x && star.y == snake[i].y) {
+						star = {
+							x : Math.floor(Math.random() * 14 + 1) * box,
+							y : Math.floor(Math.random() * 14 + 4) * box
+						} 
+					} else {
+						i++;
+					}
+				}
+				if (!mute)
+					coin.play();
+			} else {
+				snake.pop();
+			}
+
+			let newHead = {
+				x : snakeX,
+				y : snakeY
+			}
+
+			if (collision(newHead, snake)) {
+				clearInterval(game);
+				if (!mute) {
+					end.play();
+				}
+			}
+
+			snake.unshift(newHead);
+
+			ctx.fillStyle = "white";
+			ctx.font = "36px Anton";
+			ctx.fillText(score, 2.5 * box, 2 * box);
+		}
+
+		let game = setInterval(draw, 75);
+
+	</script>
+
+</html>

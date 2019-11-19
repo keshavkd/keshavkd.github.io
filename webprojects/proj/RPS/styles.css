@@ -1,0 +1,133 @@
+body {
+	margin: 0px auto;
+	padding: 2rem;
+	font-family: 'Rubik', sans-serif;
+	color: #455A64;
+	background-color: #212121;
+}
+
+.main-container {
+	margin: 0px auto;
+	width: 70%;
+	text-align: center;
+	background-color: #EEEEEE;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.15);
+	border-radius: 1rem;
+}
+
+header {
+	font-size: 2rem;
+	padding: 1rem;
+	font-weight: 500;
+	text-transform: uppercase;
+}
+
+.small-credit-me {
+	padding: 0 0.4rem;
+	font-size: 0.8rem;
+	text-align: right;
+	padding-right: 1rem;
+	color: #03A9F4;
+}
+
+.small-credit {
+	padding: 0.4rem;
+	font-size: 0.6rem;
+	text-align: right;
+	padding-right: 1rem;
+}
+
+.small-credit a {
+	text-decoration: none;
+}
+
+.small-credit a:hover {
+	color: #FFB300;
+}
+
+.small-credit a:link {
+	color: #607D8B;
+}
+
+.small-credit a:visited, 
+.small-credit a:active {
+	color: #03A9F4;
+}
+
+hr {
+	margin-block-start: 0rem;
+	margin-inline-start: 1rem;
+	margin-inline-end: 1rem;
+}
+
+.hands {
+	margin-top: 2rem;
+	margin-bottom: 4rem;
+}
+
+.hands img {
+	padding: 0.5rem;
+	width: 25%;
+	transition: 0.3s;
+	border-radius: 0.5rem;
+}
+
+.hands img:hover {
+	cursor: pointer;
+	background-color: #039BE5;
+}
+
+button {
+  background-color: #00ACC1;
+  border: 2px solid #EEEEEE;
+  color: white;
+  text-decoration: none;
+  display: inline-block;
+  padding: 0.7rem 1.1rem;
+  font-size: 1rem;
+  margin: 0.5rem 1rem;
+  cursor: pointer;
+  text-transform: uppercase;
+  border-radius: 0.5rem;
+  letter-spacing: 0.1rem;
+  font-family: 'Rubik', sans-serif;
+  font-weight: 500;
+  transition: 0.3s;
+}
+
+button:hover {
+	background-color: #EEEEEE;
+	color: #00ACC1;
+	border: 2px solid #00ACC1;
+}
+
+.score {
+	padding: 2rem;
+	width: 75%;
+	margin: 0px auto;
+}
+
+table {
+	border-collapse: collapse;
+	width: 100%;
+}
+
+tr:first-child td:first-child { border-top-left-radius: 0.5rem; }
+tr:first-child td:last-child { border-top-right-radius: 0.5rem; }
+tr:last-child td:first-child { border-bottom-left-radius: 0.5rem; }
+tr:last-child td:last-child { border-bottom-right-radius: 0.5rem; }
+
+td {
+	padding: 0.3rem;
+	color: white;
+}
+
+#user {
+	background-color: #039BE5;
+	width: 50%;
+}
+
+#cpu {
+	background-color: #FFB300;
+	width: 50%;
+}

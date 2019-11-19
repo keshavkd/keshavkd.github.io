@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>WeatherAPI - Keshav D Karanth</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="../bootstrap-weather/src/styles.css" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
+        integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:400,500&display=swap">
+</head>
+
+<body class="shadow mb-5 bg-white rounded">
+
+    <header>
+        <div class="container-fluid p-0 m-0">
+            <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+                <a class="navbar-brand" href="#"><i class="fas fa-cloud-sun mx-1 p-1"></i>WeatherAPI - Keshav D
+                    Karanth</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <form class="form-inline mb-2">
+            <div class="form-group mb-2">
+                <p class="form-control-plaintext mr-4">City/ZipCode:
+                    <span id="hint-span"><i class="fas fa-question-circle"></i></span>
+                </p>
+            </div>
+            <div class="form-group mx-sm-3 mb-2">
+                <label for="inp-city-zip" class="sr-only">Search</label>
+                <input type="text" class="form-control" id="inp-city-zip" placeholder="Search">
+            </div>
+            <div class="form-group mb-2">
+                <label for="temp" class="sr-only">Temperature</label>
+                <select class="custom-select mr-sm-2 tx" id="temp">
+                    <option value="cel" selected>Celcius</option>
+                    <option value="far">Farenheit</option>
+                </select>
+            </div>
+            <div class="form-group mb-2">
+                <label for="type" class="sr-only">Type</label>
+                <select class="custom-select mr-sm-2 cx" id="type">
+                    <option value="city" selected>City</option>
+                    <option value="zip">Zipcode</option>
+                </select>
+            </div>
+            <a id="submit-btn" class="btn btn-primary text-white mx-sm-1 mb-2 tx">Search</a>
+        </form>
+
+        <container>
+            <div class="error-text mt-3 bg-warning text-white">
+                <p class="m-2 p-2">Data does not exist! Check input again.</p>
+            </div>
+            <div class="display-content">
+                <hr class="p-2">
+                <h4 class="text-primary">Result:</h4>
+                <p class="mt-1" id="coord"></p>
+                <p class="mt-1" id="hum"></p>
+                <p class="mt-1" id="res-temp"></p>
+                <p class="mt-1" id="area"></p>
+                <p class="mt-1" id="desc"></p>
+            </div>
+        </container>
+    </main>
+
+    <footer>
+        <div class="container-fluid p-0 m-0">
+            <p class="text-right bg-primary p-2 pr-4"><a class="text-white" target="_blank"
+                    href="https://keshavkd.github.io">~
+                    KeshavKd</a></p>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+    </script>
+    <script src="../bootstrap-weather/src/script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Rock, Paper, Scissors! - Keshavkd</title>
+</head>
+
+<link rel="stylesheet" type="text/css" href="styles.css">
+<link href="https://fonts.googleapis.com/css?family=Rubik:400,500&display=swap" rel="stylesheet">
+
+<body>
+	<div class="main-container">
+
+		<header>Rock, Paper, Scissors!</header>
+		<hr>
+		
+		<button onclick="reset()">Restart</button>
+		<div class="score">
+			<table class="tb-score">
+				<tbody>
+					<tr>
+						<td id="user">User: 0</td>
+						<td id="cpu">Computer: 0</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<div class="hands">
+			<img id="rock" src="res/rock.png" onclick="play('rock')"/>
+			<img id="paper" src="res/paper.png" onclick="play('paper')"/>
+			<img id="scissors" src="res/scissors.png" onclick="play('scissors')"/>
+		</div>
+
+		<hr>
+
+		<div class="small-credit-me">Keshavkd~</div>
+		<div class="small-credit">Icons made by <a href="https://www.freepik.com/" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/"  title="Creative Commons BY 3.0" target="_blank">CC 3.0</a></div>
+	</div>
+</body>
+
+<script type="text/javascript">
+	
+	var user = 0;
+	var cpu = 0;
+	var rand = 0;
+
+	function display() {
+		document.getElementById('user').innerHTML = "User: " + user;
+		document.getElementById('cpu').innerHTML = "Computer: " + cpu;
+	}
+
+	function reset() {
+		user = 0;
+		cpu = 0;
+		display();
+	}
+
+	function play(arg) {
+		rand = Math.floor(Math.random() * 3);
+		if (arg == 'rock' && rand == 2) {
+			user++;
+			alert("CPU chose Scissors! You WIN!");
+		} else if (arg == 'rock' && rand == 1) {
+			cpu++;
+			alert("CPU chose Paper! You LOSE!");
+		} else if (arg == 'paper' && rand == 0) {
+			user++;
+			alert("CPU chose Rock! You WIN!");
+		} else if (arg == 'paper' && rand == 2) {
+			cpu++;
+			alert("CPU chose Scissors! You LOSE!");
+		} else if (arg == 'scissors' && rand == 1) {
+			user++;
+			alert("CPU chose Paper! You WIN!");
+		} else if (arg == 'scissors' && rand == 0) {
+			cpu++;
+			alert("CPU chose Rock! You LOSE!");
+		} else {
+			if (rand == 0)
+				res = "Rock";
+			else if (rand == 1)
+				res = "Paper";
+			else
+				res = "Scissors"
+			alert("CPU chose " + res + "! It's a TIE!");
+		}
+		display();
+	}
+
+</script>
+
+</html>

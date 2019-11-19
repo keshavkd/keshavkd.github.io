@@ -1,0 +1,86 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background-color: #263238;
+}
+
+.can-1 {
+    /* margin: 2rem auto; */
+    border: 2px solid whitesmoke;
+    background-color: white;
+    cursor: crosshair;
+}
+
+.handles {
+    margin-left: 0.4rem;
+    margin-top: 0.6rem;
+}
+
+#cwheel {
+    padding: 0.4rem;
+    width: 3.4rem;
+    height: 3.4rem;
+    cursor: pointer;
+}
+
+.btns {
+    margin-top: 0.4rem;
+}
+
+.btn {
+    border: none;
+    color: black;
+    padding: 0.4rem;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    cursor: pointer;
+    width: 2.2rem;
+    -webkit-transition-duration: 0.2s; /* Safari */
+    transition-duration: 0.2s;
+}
+
+#plus:hover {
+    background-color: #008CBA;
+    color: white;
+}
+
+#sub:hover {
+    background-color: #f44336;
+    color: white;
+}
+
+.clear {
+    margin-top: 0.8rem;
+    border: none;
+    padding: 0.5rem 1rem;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 0.8rem;
+    -webkit-transition-duration: 0.2s; /* Safari */
+    transition-duration: 0.2s;
+    cursor: pointer;
+    /* background-color: white;  */
+    color: black; 
+    text-transform: uppercase;
+    letter-spacing: 0.05rem;
+  }
+  
+  .clear:hover {
+    background-color: #f44336;
+    color: white;
+  }
+
+  #strtext {
+    color: white; margin-top: 0.6rem; font-size: 1rem;
+  }
+
+  #stwidth {
+      font-weight: 500;
+  }

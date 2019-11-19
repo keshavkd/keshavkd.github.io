@@ -1,0 +1,104 @@
+* {
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    margin: 2rem;
+    color: whitesmoke;
+}
+
+h2 {
+    color: #039BE5;
+    margin: 1rem 1rem 1rem 0rem;
+}
+
+h4 {
+    color: #039BE5;
+    margin: 2rem 1rem 1rem 0rem;
+}
+
+table {
+    border-collapse: collapse;
+    width: 70%;
+}
+
+table td,
+table th {
+    border: 1px solid #ddd;
+    padding: 0.4rem 1rem 0.4rem 1rem;
+    text-align: justify;
+    text-justify: inter-word;
+}
+
+table tr {
+    -webkit-transition-duration: 0.2s;
+    /* Safari */
+    transition-duration: 0.2s;
+}
+
+table tr:nth-child(odd) {
+    background-color: #ECEFF1;
+}
+
+table tr:hover {
+    background-color: #B3E5FC;
+}
+
+table th {
+    padding: 1rem;
+    text-align: left;
+    background-color: #039BE5;
+    color: white;
+    font-weight: 500;
+    font-size: 1.4rem;
+}
+
+a {
+    text-decoration: none;
+    color: #039BE5;
+    font-size: 1.2rem;
+    -webkit-transition-duration: 0.2s;
+    /* Safari */
+    transition-duration: 0.2s;
+}
+
+td:last-child {
+    color: #455A64;
+}
+
+a:visited {
+    color: #039BE5;
+}
+
+a:hover {
+    color: #546E7A;
+}
+
+#title {
+    width: 40%;
+}
+
+#desc {
+    width: 60%;
+}
+
+@media screen and (max-width: 700px) {
+    table {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 475px) {
+    h2 {
+        font-size: 1.2rem;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    h2 {
+        font-size: 0.8rem;
+    }
+}
