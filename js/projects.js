@@ -25,21 +25,6 @@ var workProjects = [
   }
 ];
 
-var personalProjects = [
-  {
-    title: "Connect 4",
-    desc: "Browser-based Connect 4 game built with TypeScript. Two-player turn-based gameplay with win detection and reset functionality.",
-    tags: ["TypeScript", "HTML/CSS"],
-    link: "https://github.com/keshavkd/connect-4"
-  },
-  {
-    title: "Ebay Shopping App",
-    desc: "Responsive web portal for browsing Ebay products with parametric search (condition, shipping, location). Built with AngularJS and a Node.js backend.",
-    tags: ["AngularJS", "Node.js", "Ebay API"],
-    link: "https://github.com/keshavkd/CSCI-571---Web-Technologies"
-  }
-];
-
 function renderProjects(containerId, projects) {
   var container = document.getElementById(containerId);
   if (!container) return;
