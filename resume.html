@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Keshav Karanth — Resume</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      color: #1e293b;
+      background: #fff;
+      line-height: 1.5;
+      padding: 48px 24px;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    h1 { font-size: 1.8rem; margin-bottom: 4px; }
+    .contact { color: #64748b; font-size: 0.9rem; margin-bottom: 24px; }
+    .contact a { color: #0891b2; text-decoration: none; }
+    hr { border: none; border-top: 1px solid #e2e8f0; margin: 20px 0; }
+    h2 { font-size: 1.1rem; text-transform: uppercase; letter-spacing: 0.05em; color: #0891b2; margin-bottom: 12px; }
+    h3 { font-size: 1rem; margin-top: 16px; margin-bottom: 2px; }
+    .subtitle { font-size: 0.85rem; color: #64748b; margin-bottom: 8px; }
+    ul { padding-left: 20px; margin-bottom: 12px; }
+    li { margin-bottom: 4px; font-size: 0.9rem; }
+    .skills-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .skill-cat { margin-bottom: 12px; }
+    .skill-cat strong { display: block; font-size: 0.85rem; color: #64748b; margin-bottom: 4px; }
+    .skill-cat span { font-size: 0.9rem; }
+    @media print {
+      body { padding: 24px; }
+    }
+  </style>
+</head>
+<body>
+  <h1>Keshav Karanth</h1>
+  <div class="contact">
+    Boulder, CO &middot; keshavkd.96@gmail.com &middot;
+    <a href="https://github.com/keshavkd">github.com/keshavkd</a> &middot;
+    <a href="https://linkedin.com/in/keshavkd">linkedin.com/in/keshavkd</a>
+  </div>
+
+  <h2>Summary</h2>
+  <p style="font-size:0.9rem; margin-bottom:20px;">
+    Senior software engineer with ~6 years of experience shipping customer-facing products
+    at Amazon and Workday. Primary owner of <strong>Workday Everywhere</strong> chat integrations
+    (Microsoft Teams and Slack) — where employees approve time off, complete tasks, and interact
+    with AI assistants without leaving collaboration tools. Full-stack and platform delivery
+    across TypeScript/React, Node.js, and AWS; led org-wide security compliance programs,
+    modularized AI agent infrastructure, and paid down structural debt before major roadmap bets.
+    340+ delivery tickets at 90%+ completion; 1,400+ commits across 22 repositories.
+  </p>
+
+  <hr>
+
+  <h2>Experience</h2>
+
+  <h3>Workday — Software Development Engineer</h3>
+  <div class="subtitle">Workday Everywhere (Slack &amp; Teams) | Remote | Aug 2023 – Present</div>
+  <ul>
+    <li>Own end-to-end features on Workday for Microsoft Teams: unified task inbox, calendar, learning, diagnostics, production deploys, and security hardening.</li>
+    <li>Led onboarding of Slack and Teams to a company-wide task service with feature-flagged migration and fallback paths.</li>
+    <li>Modularized the AI agents codebase into domain submodules for parallel team shipping; integrated chat surfaces with agent orchestration backends.</li>
+    <li>Authored AI threat models (Ask Workday / AI assistant) with security architects.</li>
+    <li>Program lead for org-wide secrets management audit across 12+ repos. Delivered npm/CDK vulnerability fixes, cache-control, and DoS protections.</li>
+    <li>Resolved Teams circular dependency structural debt to unblock AI and MyTasks roadmap.</li>
+  </ul>
+
+  <h3>Amazon — Software Development Engineer</h3>
+  <div class="subtitle">Learning Technologies | Seattle, WA | Jul 2020 – Feb 2023</div>
+  <ul>
+    <li>Migrated internal LMS from Rails monolith to React frontends and service-oriented Rails APIs.</li>
+    <li>Built and operated AWS production services (EC2, S3, CDK/TypeScript); automated onboarding for 1,500+ internal users.</li>
+    <li>Drove front-end architecture and Figma-to-dev workflow for a multi-team platform.</li>
+  </ul>
+
+  <hr>
+
+  <h2>Education</h2>
+  <p><strong>University of Southern California (Viterbi)</strong> — M.S., Computer Science | May 2020</p>
+  <p><strong>M.S. Ramaiah Institute of Technology</strong> — B.E., Information Science &amp; Engineering | May 2018</p>
+
+  <hr>
+
+  <h2>Technical Skills</h2>
+  <div class="skills-grid">
+    <div>
+      <div class="skill-cat"><strong>Languages &amp; Frameworks</strong><span>TypeScript, JavaScript, React, Node.js, Ruby/Rails, HTML/CSS</span></div>
+      <div class="skill-cat"><strong>Cloud &amp; Infra</strong><span>AWS (CDK, CloudFormation, Lambda, EC2, S3, API Gateway, CloudWatch), Terraform, Jenkins</span></div>
+    </div>
+    <div>
+      <div class="skill-cat"><strong>Platforms &amp; Domains</strong><span>Microsoft Teams / Bot Framework, Slack API, REST APIs, feature flags, observability</span></div>
+      <div class="skill-cat"><strong>Practices &amp; Tools</strong><span>Threat modeling, secret scanning, agile delivery, cross-team leadership, Git, Jest, Figma, Jira</span></div>
+    </div>
+  </div>
+</body>
+</html>
