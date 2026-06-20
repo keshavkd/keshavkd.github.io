@@ -693,6 +693,10 @@ img {
     left: 9px;
   }
 
+  .site-footer {
+    padding: 20px 0;
+  }
+
   .footer-inner {
     flex-direction: column;
     text-align: center;
