@@ -330,7 +330,7 @@ img {
 
 .stats-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: 1fr;
   gap: 16px;
 }
 
@@ -631,7 +631,6 @@ img {
   }
 
   .stats-grid {
-    grid-template-columns: repeat(3, 1fr);
     gap: 12px;
   }
 
@@ -706,10 +705,6 @@ img {
 @media (max-width: 480px) {
   .hero h1 {
     font-size: 1.8rem;
-  }
-
-  .stats-grid {
-    grid-template-columns: 1fr;
   }
 
   .hero-actions {
